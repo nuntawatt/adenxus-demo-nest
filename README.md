@@ -1,4 +1,4 @@
-# NestJS API Demo with Swagger
+# NestJS API with Swagger
 
 A comprehensive NestJS API project with Swagger documentation, Docker support, and GitHub Actions CI/CD pipeline.
 
@@ -88,7 +88,7 @@ docker-compose up -d
 - `npm run lint` - Run ESLint
 - `npm run lint:fix` - Fix ESLint issues
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
 The project includes a comprehensive GitHub Actions workflow that:
 
@@ -109,7 +109,7 @@ The project includes a comprehensive GitHub Actions workflow that:
 - Semantic versions: `1.0.0`, `1.0`, `1`
 - SHA commits: `{branch}-{sha}`
 
-## 📊 API Documentation
+## API Documentation
 
 Once the application is running, visit http://localhost:3000/api to access the interactive Swagger documentation. You can:
 
@@ -118,7 +118,7 @@ Once the application is running, visit http://localhost:3000/api to access the i
 - View request/response schemas
 - Download API specifications
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 - `PORT` - Application port (default: 3000)
@@ -166,18 +166,10 @@ src/
     └── products.service.ts
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Add tests if applicable
 5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Support
-
-For questions and support, please open an issue in the GitHub repository.

@@ -26,7 +26,7 @@ async function bootstrap() {
 
   // Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('NestJS API Demo')
+    .setTitle('NestJS API Mg')
     .setDescription('A comprehensive NestJS API with Swagger documentation')
     .setVersion('1.0')
     .addTag('users')
@@ -38,7 +38,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
-  console.log(`🚀 Application is running on: http://localhost:${process.env.PORT ?? 3000}`);
-  console.log(`📚 Swagger documentation available at: http://localhost:${process.env.PORT ?? 3000}/api`);
+  console.log(`Application is running on: http://localhost:${process.env.PORT ?? 3000}`);
+  console.log(`Swagger documentation available at: http://localhost:${process.env.PORT ?? 3000}/api`);
 }
 bootstrap();
