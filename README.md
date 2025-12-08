@@ -12,7 +12,7 @@ A comprehensive NestJS API project with Swagger documentation, Docker support, a
 - **Security**: Non-root Docker user, vulnerability scanning
 - **CORS Enabled**: Cross-origin resource sharing configured
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### Users
 - `POST /users` - Create a new user

@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     # build: .
-    image: ghcr.io/meawhun/adenxus-demo-nest:latest
+    image: ghcr.io/nuntawatt/adenxus-demo-nest:latest
     container_name: adenxus-demo-nest
     ports:
       - "3000:3000"
