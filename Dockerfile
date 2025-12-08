@@ -7,8 +7,11 @@ WORKDIR /app
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install all dependencies (including dev dependencies for build)
+RUN npm ci
+
+# # Install NestJS CLI globally
+# RUN npm install -g @nestjs/cli
 
 # Copy the rest of the application code
 COPY . .
