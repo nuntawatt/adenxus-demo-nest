@@ -2,7 +2,7 @@
 
 A comprehensive NestJS API project with Swagger documentation, Docker support, and GitHub Actions CI/CD pipeline.
 
-## 🚀 Features
+## Features
 
 - **NestJS Framework**: Modern TypeScript-based Node.js framework
 - **Swagger Documentation**: Auto-generated API documentation
@@ -30,7 +30,7 @@ A comprehensive NestJS API project with Swagger documentation, Docker support, a
 - `PATCH /products/:id` - Update product information
 - `DELETE /products/:id` - Delete product
 
-## 🛠️ Development Setup
+## Development Setup
 
 ### Prerequisites
 - Node.js 18+
@@ -76,7 +76,7 @@ docker run -p 3000:3000 nestjs-api-demo
 docker-compose up -d
 ```
 
-## 📝 Available Scripts
+## Available Scripts
 
 - `npm run start` - Start the application in production mode
 - `npm run start:dev` - Start the application in development mode with hot reload

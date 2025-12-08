@@ -1,15 +1,4 @@
-import { 
-  Controller, 
-  Get, 
-  Post, 
-  Body, 
-  Patch, 
-  Param, 
-  Delete,
-  Query,
-  HttpCode,
-  HttpStatus
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, HttpCode, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -19,18 +8,18 @@ import { Product } from './entities/product.entity';
 @ApiTags('products')
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(private readonly productsService: ProductsService) { }
 
   @Post()
   @ApiOperation({ summary: 'Create a new product' })
-  @ApiResponse({ 
-    status: 201, 
+  @ApiResponse({
+    status: 201,
     description: 'Product successfully created',
-    type: Product 
+    type: Product
   })
-  @ApiResponse({ 
-    status: 400, 
-    description: 'Bad Request - Invalid input data' 
+  @ApiResponse({
+    status: 400,
+    description: 'Bad Request - Invalid input data'
   })
   create(@Body() createProductDto: CreateProductDto): Product {
     return this.productsService.create(createProductDto);
@@ -38,10 +27,10 @@ export class ProductsController {
 
   @Get()
   @ApiOperation({ summary: 'Get all products' })
-  @ApiResponse({ 
-    status: 200, 
+  @ApiResponse({
+    status: 200,
     description: 'List of all products',
-    type: [Product] 
+    type: [Product]
   })
   findAll(): Product[] {
     return this.productsService.findAll();
@@ -49,15 +38,15 @@ export class ProductsController {
 
   @Get('category/:category')
   @ApiOperation({ summary: 'Get products by category' })
-  @ApiParam({ 
-    name: 'category', 
+  @ApiParam({
+    name: 'category',
     description: 'Product category',
-    type: 'string' 
+    type: 'string'
   })
-  @ApiResponse({ 
-    status: 200, 
+  @ApiResponse({
+    status: 200,
     description: 'List of products in the specified category',
-    type: [Product] 
+    type: [Product]
   })
   findByCategory(@Param('category') category: string): Product[] {
     return this.productsService.findByCategory(category);
@@ -65,10 +54,10 @@ export class ProductsController {
 
   @Get('in-stock')
   @ApiOperation({ summary: 'Get products that are in stock' })
-  @ApiResponse({ 
-    status: 200, 
+  @ApiResponse({
+    status: 200,
     description: 'List of products with stock > 0',
-    type: [Product] 
+    type: [Product]
   })
   findInStock(): Product[] {
     return this.productsService.findInStock();
@@ -76,19 +65,19 @@ export class ProductsController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get product by ID' })
-  @ApiParam({ 
-    name: 'id', 
+  @ApiParam({
+    name: 'id',
     description: 'Product ID',
-    type: 'number' 
+    type: 'number'
   })
-  @ApiResponse({ 
-    status: 200, 
+  @ApiResponse({
+    status: 200,
     description: 'Product found',
-    type: Product 
+    type: Product
   })
-  @ApiResponse({ 
-    status: 404, 
-    description: 'Product not found' 
+  @ApiResponse({
+    status: 404,
+    description: 'Product not found'
   })
   findOne(@Param('id') id: string): Product {
     return this.productsService.findOne(+id);
@@ -96,23 +85,23 @@ export class ProductsController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update product information' })
-  @ApiParam({ 
-    name: 'id', 
+  @ApiParam({
+    name: 'id',
     description: 'Product ID',
-    type: 'number' 
+    type: 'number'
   })
-  @ApiResponse({ 
-    status: 200, 
+  @ApiResponse({
+    status: 200,
     description: 'Product successfully updated',
-    type: Product 
+    type: Product
   })
-  @ApiResponse({ 
-    status: 404, 
-    description: 'Product not found' 
+  @ApiResponse({
+    status: 404,
+    description: 'Product not found'
   })
-  @ApiResponse({ 
-    status: 400, 
-    description: 'Bad Request - Invalid input data' 
+  @ApiResponse({
+    status: 400,
+    description: 'Bad Request - Invalid input data'
   })
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto): Product {
     return this.productsService.update(+id, updateProductDto);
@@ -121,18 +110,18 @@ export class ProductsController {
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOperation({ summary: 'Delete product' })
-  @ApiParam({ 
-    name: 'id', 
+  @ApiParam({
+    name: 'id',
     description: 'Product ID',
-    type: 'number' 
+    type: 'number'
   })
-  @ApiResponse({ 
-    status: 204, 
-    description: 'Product successfully deleted' 
+  @ApiResponse({
+    status: 204,
+    description: 'Product successfully deleted'
   })
-  @ApiResponse({ 
-    status: 404, 
-    description: 'Product not found' 
+  @ApiResponse({
+    status: 404,
+    description: 'Product not found'
   })
   remove(@Param('id') id: string): void {
     this.productsService.remove(+id);
