@@ -21,7 +21,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set lowercase repository name
         run: echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
@@ -33,6 +33,7 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ghcr.io/${{ env.REPO_LC }}:latest
+
       # - name: SSH into deployment server
       #   uses: appleboy/ssh-action@v0.1.10
       #   with:
