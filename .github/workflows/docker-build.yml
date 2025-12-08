@@ -1,0 +1,53 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/${{ github.repository }}:latest
+      # - name: SSH into deployment server
+      #   uses: appleboy/ssh-action@v0.1.10
+      #   with:
+
+      #     host: ${{ env.EC2_HOST}}
+      #     username: ${{ env.EC2_USERNAME}}
+      #     password: ${{ env.EC2_PASSWORD}}
+      #     script: |
+      #       docker image rm -f ghcr.io/${{ github.repository }}:latest
+
+      #       # Pull the updated Docker image
+      #       docker pull ghcr.io/${{ github.repository }}:latest
+
+      #       # stop containers defined in the specific Docker Compose file
+      #       docker compose -f docker-compose.yml down
+
+      #       # start containers defined in the specific Docker Compose file
+      #       docker compose -f docker-compose.yml up -d
+
+      #       # remove dangling images is untag images
+      #       # docker rmi $(docker images -f "dangling=true" -q)
