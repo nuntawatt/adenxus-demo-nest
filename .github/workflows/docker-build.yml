@@ -33,25 +33,3 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ghcr.io/${{ env.REPO_LC }}:latest
-
-      # - name: SSH into deployment server
-      #   uses: appleboy/ssh-action@v0.1.10
-      #   with:
-
-      #     host: ${{ env.EC2_HOST}}
-      #     username: ${{ env.EC2_USERNAME}}
-      #     password: ${{ env.EC2_PASSWORD}}
-      #     script: |
-      #       docker image rm -f ghcr.io/${{ github.repository }}:latest
-
-      #       # Pull the updated Docker image
-      #       docker pull ghcr.io/${{ github.repository }}:latest
-
-      #       # stop containers defined in the specific Docker Compose file
-      #       docker compose -f docker-compose.yml down
-
-      #       # start containers defined in the specific Docker Compose file
-      #       docker compose -f docker-compose.yml up -d
-
-      #       # remove dangling images is untag images
-      #       # docker rmi $(docker images -f "dangling=true" -q)
