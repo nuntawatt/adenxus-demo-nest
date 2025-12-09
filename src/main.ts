@@ -26,7 +26,7 @@ async function bootstrap() {
 
   // Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('NestJS API')
+    .setTitle('NestJS API - Swagger')
     .setDescription('A comprehens ive NestJS API with Swagger documentation')
     .setVersion('1.0')
     .addTag('users')
